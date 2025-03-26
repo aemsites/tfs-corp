@@ -4,7 +4,7 @@
  * https://www.hlx.live/developer/block-collection/table
  */
 
-import { enableAdaptiveTooltip } from '../../scripts/blocks-utils.js';
+// import { enableAdaptiveTooltip } from '../../scripts/blocks-utils.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 import { fetchPlaceholders } from '../../scripts/aem.js';
 
@@ -123,7 +123,7 @@ function decorateIcons(td, block) {
         prevSibling.append(icon);
       }
 
-      enableAdaptiveTooltip(icon);
+      // enableAdaptiveTooltip(icon);
     }
   });
 }

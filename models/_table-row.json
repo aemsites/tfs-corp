@@ -1,0 +1,952 @@
+{
+  "table-row": {
+    "fields": [
+      {
+        "component": "tab",
+        "name": "tab1",
+        "label": "Column 1"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column1_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column1_text",
+        "valueType": "string",
+        "value": "Column 1"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column1_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column1_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column1_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column1_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column1_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column1_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column1_buttonFlag"}, true] }
+      }
+    ]
+  },
+  "table-col-2": {
+    "fields": [
+      {
+        "component": "tab",
+        "name": "tab1",
+        "label": "Column 1"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column1_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column1_text",
+        "valueType": "string",
+        "value": "Column 1"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column1_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column1_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column1_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column1_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column1_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column1_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column1_buttonFlag"}, true] }
+      },
+      {
+        "component": "tab",
+        "name": "tab2",
+        "label": "Column 2"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column2_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column2_text",
+        "valueType": "string",
+        "value": "Column 2"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column2_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column2_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column2_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column2_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column2_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column2_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column2_buttonFlag"}, true] }
+      }
+    ]
+  },
+  "table-col-3": {
+    "fields": [
+      {
+        "component": "tab",
+        "name": "tab1",
+        "label": "Column 1"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column1_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column1_text",
+        "valueType": "string",
+        "value": "Column 1"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column1_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column1_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column1_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column1_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column1_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column1_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column1_buttonFlag"}, true] }
+      },
+      {
+        "component": "tab",
+        "name": "tab2",
+        "label": "Column 2"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column2_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column2_text",
+        "valueType": "string",
+        "value": "Column 2"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column2_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column2_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column2_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column2_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column2_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column2_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column2_buttonFlag"}, true] }
+      },
+      {
+        "component": "tab",
+        "name": "tab3",
+        "label": "Column 3"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column3_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column3_text",
+        "valueType": "string",
+        "value": "Column 3"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column3_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column3_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column3_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column3_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column3_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column3_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column3_buttonFlag"}, true] }
+      }
+    ]
+  },
+  "table-col-4": {
+    "fields": [
+      {
+        "component": "tab",
+        "name": "tab1",
+        "label": "Column 1"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column1_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column1_text",
+        "valueType": "string",
+        "value": "Column 1"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column1_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column1_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column1_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column1_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column1_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column1_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column1_buttonFlag"}, true] }
+      },
+      {
+        "component": "tab",
+        "name": "tab2",
+        "label": "Column 2"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column2_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column2_text",
+        "valueType": "string",
+        "value": "Column 2"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column2_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column2_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column2_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column2_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column2_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column2_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column2_buttonFlag"}, true] }
+      },
+      {
+        "component": "tab",
+        "name": "tab3",
+        "label": "Column 3"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column3_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column3_text",
+        "valueType": "string",
+        "value": "Column 3"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column3_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column3_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column3_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column3_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column3_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column3_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column3_buttonFlag"}, true] }
+      },
+      {
+        "component": "tab",
+        "name": "tab4",
+        "label": "Column 4"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column4_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column4_text",
+        "valueType": "string",
+        "value": "Column 4"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column4_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column4_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column4_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column4_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column4_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column4_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column4_buttonFlag"}, true] }
+      }
+    ]
+  },
+  "table-col-5": {
+    "fields": [
+      {
+        "component": "tab",
+        "name": "tab1",
+        "label": "Column 1"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column1_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column1_text",
+        "valueType": "string",
+        "value": "Column 1"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column1_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column1_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column1_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column1_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column1_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column1_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column1_buttonFlag"}, true] }
+      },
+      {
+        "component": "tab",
+        "name": "tab2",
+        "label": "Column 2"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column2_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column2_text",
+        "valueType": "string",
+        "value": "Column 2"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column2_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column2_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column2_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column2_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column2_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column2_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column2_buttonFlag"}, true] }
+      },
+      {
+        "component": "tab",
+        "name": "tab3",
+        "label": "Column 3"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column3_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column3_text",
+        "valueType": "string",
+        "value": "Column 3"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column3_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column3_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column3_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column3_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column3_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column3_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column3_buttonFlag"}, true] }
+      },
+      {
+        "component": "tab",
+        "name": "tab4",
+        "label": "Column 4"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column4_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column4_text",
+        "valueType": "string",
+        "value": "Column 4"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column4_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column4_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column4_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column4_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column4_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column4_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column4_buttonFlag"}, true] }
+      },
+      {
+        "component": "tab",
+        "name": "tab5",
+        "label": "Column 5"
+      },
+      {
+        "component": "select",
+        "label": "Icon",
+        "name": "column5_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Text",
+        "name": "column5_text",
+        "valueType": "string",
+        "value": "Column 5"
+      },
+      {
+        "component": "select",
+        "label": "Tooltip Icon",
+        "name": "column5_tooltip_icon",
+        "valueType": "string",
+        "...": "./icon-list/_table-icons-list.json"
+      },
+      {
+        "component": "richtext",
+        "label": "Tooltip Text",
+        "name": "column5_tooltip_text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Add button",
+        "name": "column5_buttonFlag",
+        "value": false
+      },
+      {
+        "component": "richtext",
+        "label": "Button(Add text and link)",
+        "name": "column5_button",
+        "valueType": "string",
+        "condition": { "===": [{"var" : "column5_buttonFlag"}, true] }
+      },
+      {
+        "component": "select",
+        "label": "Button Style",
+        "name": "column5_buttonStyle",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Orange",
+            "value": "orange"
+          }
+        ],
+        "condition": { "===": [{"var" : "column5_buttonFlag"}, true] }
+      }
+    ]
+  }
+}

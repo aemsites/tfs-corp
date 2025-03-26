@@ -1,0 +1,28 @@
+{
+  "options": [
+    {
+      "name": "None",
+      "value": ""
+    },
+    {
+      "name": "Heading Tooltip (white)",
+      "value": ":question-fill-white:"
+    },
+    {
+      "name": "Ten Percent Large (indigo)",
+      "value": ":ten-percent-indigo-large:"
+    },
+    {
+      "name": "Body Tooltip (teal)",
+      "value": ":question-teal:"
+    },
+    {
+      "name": "Check (teal)",
+      "value": ":check-teal:"
+    },
+    {
+      "name": "Cross (red)",
+      "value": ":cross-red:"
+    }
+  ]
+}

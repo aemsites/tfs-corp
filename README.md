@@ -1,9 +1,9 @@
-# Your Project's Title...
-Your project's description...
+# Thermo Fisher AEM-authoring POC
+POC for Thermo Fisher pages
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--tfs-corp--aemsites.aem.page/
+- Live: https://main--tfs-corp--aemsites.aem.live/
 
 ## Documentation
 

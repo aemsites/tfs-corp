@@ -103,15 +103,30 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+export async function loadNavFragment(fragmentName) {
+  let navPath = getMetadata(fragmentName);
+  let navFragment;
+  if (navPath) {
+    navFragment = await loadFragment(navPath);
+  }
+
+  // all else fails default to us en
+  if (!navFragment) {
+    navPath = `/us/en/fragments/${fragmentName}`;
+    navFragment = await loadFragment(navPath);
+  }
+
+  return navFragment;
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
   // load nav as fragment
-  const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  // load nav as fragment
+  const fragment = await loadNavFragment('nav');
 
   // decorate nav DOM
   block.textContent = '';

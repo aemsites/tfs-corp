@@ -5,7 +5,7 @@
  */
 
 // import { enableAdaptiveTooltip } from '../../scripts/blocks-utils.js';
-import { moveInstrumentation } from '../../scripts/scripts.js';
+import { moveInstrumentation } from '../../scripts/utils.js';
 import { fetchPlaceholders } from '../../scripts/aem.js';
 
 const BLOCK_VARIANTS = {

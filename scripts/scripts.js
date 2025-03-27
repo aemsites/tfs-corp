@@ -1,7 +1,6 @@
 import {
   loadHeader,
   loadFooter,
-  decorateButtons,
   decorateIcons,
   decorateSections,
   decorateBlocks,
@@ -85,6 +84,45 @@ export function buildSymbol(name) {
   const icon = document.createElement('i');
   icon.className = `symbol symbol-${toClassName(name)}`;
   return icon;
+}
+
+/**
+ * Decorates links with appropriate classes to style them as buttons
+ * @param {HTMLElement} main The main container element
+ */
+export function decorateButtons(main) {
+  main.querySelectorAll('p a[href]').forEach((a) => {
+    const isTellLink = a.href.search('/tel:');
+    if (isTellLink > 0) {
+      a.href = a.href.slice(isTellLink + 1);
+    }
+    a.title = a.title || a.textContent;
+    const p = a.closest('p');
+    // identify standalone links
+    if (a.href !== a.textContent && p.textContent === a.textContent) {
+      a.classList.add('button');
+      const strong = a.closest('strong');
+      const em = a.closest('em');
+
+      if (strong) a.classList.add('accent');
+      else if (em) a.classList.add('outline');
+
+      p.className = 'button-wrapper';
+      p.replaceChildren(a);
+
+      if (!a.querySelector('.icon') && !a.querySelector('i.symbol') && !a.classList.contains('accent')) {
+        a.append(buildSymbol('chevron'));
+      }
+      if (a.getAttribute('href') === '#cookie-settings') {
+        a.addEventListener('click', (event) => {
+          event.preventDefault();
+          if (window.utagQ && typeof window.utagQ.showConsentPreferences === 'function') {
+            window.utagQ.showConsentPreferences();
+          }
+        });
+      }
+    }
+  });
 }
 
 /**

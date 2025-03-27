@@ -10,7 +10,91 @@ import {
   loadSection,
   loadSections,
   loadCSS,
+  toClassName,
 } from './aem.js';
+import {
+  isPreview,
+  inUniversalEditor,
+  moveInstrumentation,
+  getTimeoutSignal,
+  FETCH_TIMEOUTS,
+  setCookie,
+  getSiteNames,
+  isExternalLink,
+  getPathInfo,
+  fetchLocalePlaceholders,
+  getPlaceholderString,
+} from './utils.js';
+
+const iconLoadingPromises = {};
+async function loadIconSvg(icon, doc = document) {
+  if (!icon) return;
+
+  let svgSprite = doc.getElementById('svg-sprite');
+  if (!svgSprite) {
+    const div = document.createElement('div');
+    div.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" id="svg-sprite" style="display: none"></svg>';
+    svgSprite = div.firstElementChild;
+    doc.body.append(svgSprite);
+  }
+
+  const { iconName } = icon.dataset;
+  if (!iconLoadingPromises[iconName]) {
+    iconLoadingPromises[iconName] = (async () => {
+      const resp = await fetch(icon.src, {
+        signal: getTimeoutSignal(FETCH_TIMEOUTS.default),
+      });
+      const temp = document.createElement('div');
+      temp.innerHTML = await resp.text();
+      const svg = temp.querySelector('svg');
+
+      const symbol = document.createElementNS('http://www.w3.org/2000/svg', 'symbol');
+      symbol.id = `icons-sprite-${iconName}`;
+      symbol.setAttribute('viewBox', svg.getAttribute('viewBox'));
+      while (svg.firstElementChild) symbol.append(svg.firstElementChild);
+      svgSprite.append(symbol);
+    })();
+  }
+  await iconLoadingPromises[iconName];
+
+  const temp = document.createElement('div');
+  temp.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"><use href="#icons-sprite-${iconName}"/></svg>`;
+  icon.replaceWith(temp.firstElementChild);
+}
+
+/**
+ * Observes an icon span and loads the SVG when it becomes visible
+ * @param {Element} iconSpan the span element for the given icon
+ */
+export async function useSvgForIcon(iconSpan) {
+  const img = iconSpan.querySelector('img');
+  if (img && img.loading === 'eager') {
+    await loadIconSvg(img);
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadIconSvg(entry.target.querySelector('img'));
+          observer.disconnect();
+        }
+      });
+    }, {
+      rootMargin: '250px',
+    });
+    observer.observe(iconSpan);
+  }
+}
+
+/**
+ * build a symbol element
+ * @param {String} name the symbol name
+ * @returns {Element} the symbol
+ */
+export function buildSymbol(name) {
+  const icon = document.createElement('i');
+  icon.className = `symbol symbol-${toClassName(name)}`;
+  return icon;
+}
 
 /**
  * Moves all the attributes from a given elmenet to another given element.

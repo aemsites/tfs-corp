@@ -59,6 +59,8 @@ footer .footer .icon {
   justify-content: center;
   margin-inline-end: 2ch;
   font-family: inherit;
+  width: 120px;
+  height: auto;
 }
 
 footer .footer .icon.icon-new-window {

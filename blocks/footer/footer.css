@@ -57,11 +57,7 @@ footer .footer .icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
   margin-inline-end: 2ch;
-  border: 1px solid;
-  border-radius: 50%;
   font-family: inherit;
 }
 
@@ -76,9 +72,7 @@ footer .footer .icon.icon-new-window svg {
 }
 
 footer .footer svg {
-  width: 0.625rem;
-  height: 0.625rem;
-  fill: currentcolor;
+  width: 99px;
 }
 
 footer .footer ul {
@@ -149,6 +143,10 @@ footer .footer .section:last-child {
 }
 
 @media (width >= 770px) {
+  footer .footer svg {
+    width: 120px;
+  }
+
   footer .footer .nav-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

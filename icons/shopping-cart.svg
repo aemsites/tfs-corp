@@ -1,0 +1,6 @@
+<svg data-toggle="#cart-sidebar,#full-bg" data-toggle-classes="open"
+    class="pragma-toggle pragma-toggle-component" xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 32" data-upgraded=",PragmaToggle">
+    <path class="cls-1"
+        d="M11,25.55A1.76,1.76,0,1,1,9.27,23.8,1.76,1.76,0,0,1,11,25.55ZM24.65,23.8a1.76,1.76,0,1,0,1.76,1.75A1.75,1.75,0,0,0,24.65,23.8Zm1.46-2L29.46,9.64H10.24l.61,2.16H26.63l-2.16,7.81H9.76L5.59,4.94h-4l.62,2.15H4L8.14,21.77Z"></path>
+</svg>

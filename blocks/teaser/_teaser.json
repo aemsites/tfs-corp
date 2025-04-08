@@ -1,0 +1,80 @@
+{
+    "definitions": [
+      {
+        "title": "Teaser",
+        "id": "teaser",
+        "plugins": {
+          "xwalk": {
+            "page": {
+              "resourceType": "core/franklin/components/block/v1/block",
+              "template": {
+                "name": "Teaser",
+                "filter": "teaser"
+              }
+            }
+          }
+        }
+      },
+      {
+        "title": "Teaser Item",
+        "id": "teaser-item",
+        "plugins": {
+          "xwalk": {
+            "page": {
+              "resourceType": "core/franklin/components/block/v1/block/item",
+              "template": {
+                "name": "Teaser Item",
+                "model": "teaser-item"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "models": [
+      {
+        "id": "teaser-item",
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "image",
+            "label": "Image",
+            "multi": false
+          },
+          {
+            "component": "text",
+            "name": "title",
+            "label": "Title",
+            "valueType": "string"
+          },
+          {
+            "component": "richtext",
+            "name": "description",
+            "label": "Description",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "linkText",
+            "label": "Link Text",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "linkUrl",
+            "label": "Link URL",
+            "valueType": "string"
+          }
+        ]
+      }
+    ],
+    "filters": [
+      {
+        "id": "teaser",
+        "components": [
+          "teaser-item"
+        ]
+      }
+    ]
+  }

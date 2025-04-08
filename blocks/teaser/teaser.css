@@ -1,0 +1,64 @@
+.teaser {
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 30px;
+   
+}
+
+
+.teaser-container::after {
+    content: '';  /* Required for pseudo-elements */
+    display: block;  /* Ensures it behaves like a block element */
+    width: 80vw;  /* Makes it span the full width */
+    margin: auto;
+    border-bottom: 1px solid #dcdcdc;  /* Adds the bottom border */
+}
+
+.teaser .teaser-item {
+    display:flex;
+    padding-left: 20px;
+    background-color: #f3f3f3;
+    border: 1px solid #c9c8c8; 
+    border-radius: 3px;
+    height: 300px;
+    
+    
+}
+
+.teaser .text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 400px;
+}
+
+.teaser .text-content a {
+    margin-top: auto;
+}
+
+.teaser picture {
+    margin-left: auto;
+}
+
+.teaser img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+@media (width >= 900px) {
+    .teaser {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+    .teaser .text-content {
+        max-width: 200px;
+    }
+
+    .teaser .teaser-item {
+        height: 190px;
+    }
+
+} 

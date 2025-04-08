@@ -37,8 +37,8 @@
         {
           "component": "richtext",
           "name": "text",
-          "value": "",
           "label": "Text",
+          "value": "",
           "valueType": "string"
         },
         {
@@ -82,5 +82,20 @@
       ]
     }
   ],
-  "filters": []
+  "filters": [
+    {
+      "id": "hero",
+      "components": [
+        "text",
+        "reference",
+        "button"
+      ]
+    },
+    {
+      "id": "button",
+      "components": [
+        "text"
+      ]
+    }
+  ]
 }

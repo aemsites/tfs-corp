@@ -38,4 +38,9 @@
   .hero {
     padding: 40px 110px;
   }
+
+  .hero h1 {
+    font-size: 40px;
+    font-weight: 100;
+  }
 }

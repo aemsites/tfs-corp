@@ -168,7 +168,6 @@ export default async function decorate(block) {
 
   const hamburgerButton = document.createElement('button');
   hamburgerButton.classList.add('nav-hamburger-icon');
-  hamburgerButton.innerHTML = '&#9776;';
   hamburgerButton.setAttribute('aria-expanded', 'false');
 
   hamburgerButton.addEventListener('click', () => toggleMenu(nav, navSections));

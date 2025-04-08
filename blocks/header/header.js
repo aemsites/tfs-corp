@@ -172,6 +172,7 @@ export default async function decorate(block) {
   hamburgerButton.setAttribute('aria-expanded', 'false');
 
   hamburgerButton.addEventListener('click', () => toggleMenu(nav, navSections));
+  hamburgerDiv.append(hamburgerButton);
 
   nav.prepend(hamburgerDiv);
   nav.setAttribute('aria-expanded', 'false');

@@ -40,6 +40,44 @@
           "value": "",
           "label": "Text",
           "valueType": "string"
+        },
+        {
+          "component": "group",
+          "name": "primaryButton",
+          "label": "Primary Button",
+          "fields": [
+            {
+              "component": "text",
+              "name": "label",
+              "label": "Label",
+              "valueType": "string"
+            },
+            {
+              "component": "text",
+              "name": "url",
+              "label": "URL",
+              "valueType": "string"
+            }
+          ]
+        },
+        {
+          "component": "group",
+          "name": "secondaryButton",
+          "label": "Secondary Button",
+          "fields": [
+            {
+              "component": "text",
+              "name": "label",
+              "label": "Label",
+              "valueType": "string"
+            },
+            {
+              "component": "text",
+              "name": "url",
+              "label": "URL",
+              "valueType": "string"
+            }
+          ]
         }
       ]
     }

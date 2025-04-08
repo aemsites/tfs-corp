@@ -134,7 +134,7 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
+  const classes = ['hamburger', 'brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
@@ -147,6 +147,8 @@ export default async function decorate(block) {
     // brandLink.closest('.button-container').className = '';
   }
 
+  setupHamburgerMenu(nav);
+  
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
@@ -160,7 +162,7 @@ export default async function decorate(block) {
       });
     });
   }
-  setupHamburgerMenu(nav);
+
 }
 
 // Function to set up hamburger menu

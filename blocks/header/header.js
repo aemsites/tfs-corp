@@ -175,6 +175,7 @@ export default async function decorate(block) {
 
   nav.prepend(hamburgerDiv);
   nav.setAttribute('aria-expanded', 'false');
+  block.append(nav);
   // prevent mobile nav behavior on window resize
   //toggleMenu(nav, navSections, isDesktop.matches);
   //isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));

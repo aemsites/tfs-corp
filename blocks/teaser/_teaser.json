@@ -49,12 +49,6 @@
             "valueType": "string"
           },
           {
-            "component": "richtext",
-            "name": "description",
-            "label": "Description",
-            "valueType": "string"
-          },
-          {
             "component": "text",
             "name": "linkText",
             "label": "Link Text",

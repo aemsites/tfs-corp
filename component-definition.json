@@ -173,6 +173,21 @@
           }
         },
         {
+          "title": "Teaser Item",
+          "id": "teaser-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Teaser Item",
+                  "model": "teaser-item"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Table",
           "id": "table",
           "plugins": {

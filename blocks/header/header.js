@@ -162,13 +162,18 @@ export default async function decorate(block) {
   }
 
   // hamburger for mobile
-  const hamburger = document.createElement('div');
-  hamburger.classList.add('nav-hamburger');
-  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span>
-    </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-  nav.prepend(hamburger);
+
+  const hamburgerDiv = document.createElement('div');
+  hamburgerDiv.classList.add('nav-hamburger');
+
+  const hamburgerButton = hamburgerDiv.createElement('button');
+  hamburgerButton.classList.add('nav-hamburger-icon');
+  hamburgerButton.innerHTML = '&#9776;';
+  hamburgerButton.setAttribute('aria-expanded', 'false');
+
+  hamburgerButton.addEventListener('click', () => toggleMenu(nav, navSections));
+
+  nav.prepend(hamburgerDiv);
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);

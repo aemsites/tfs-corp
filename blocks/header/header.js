@@ -166,7 +166,7 @@ export default async function decorate(block) {
   const hamburgerDiv = document.createElement('div');
   hamburgerDiv.classList.add('nav-hamburger');
 
-  const hamburgerButton = hamburgerDiv.createElement('button');
+  const hamburgerButton = document.createElement('button');
   hamburgerButton.classList.add('nav-hamburger-icon');
   hamburgerButton.innerHTML = '&#9776;';
   hamburgerButton.setAttribute('aria-expanded', 'false');

@@ -34,6 +34,15 @@
   height: 100%;
 }
 
+.hero.white h1,
+.hero.white p {
+  color: white;
+}
+
+.hero.overlay img {
+  filter: brightness(55%);
+}
+
 @media (width >= 900px) {
   .hero {
     padding: 40px 110px;

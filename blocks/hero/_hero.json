@@ -37,65 +37,33 @@
         {
           "component": "richtext",
           "name": "text",
-          "label": "Text",
           "value": "",
+          "label": "Text",
           "valueType": "string"
-        },
+        }, 
         {
-          "component": "group",
-          "name": "primaryButton",
-          "label": "Primary Button",
-          "fields": [
+          "component": "select",
+          "name": "classes",
+          "value": "",
+          "label": "Hero options",
+          "valueType": "string",
+          "options": [
             {
-              "component": "text",
-              "name": "label",
-              "label": "Label",
-              "valueType": "string"
+                "name": "Default",
+                "value": ""
             },
             {
-              "component": "text",
-              "name": "url",
-              "label": "URL",
-              "valueType": "string"
-            }
-          ]
-        },
-        {
-          "component": "group",
-          "name": "secondaryButton",
-          "label": "Secondary Button",
-          "fields": [
-            {
-              "component": "text",
-              "name": "label",
-              "label": "Label",
-              "valueType": "string"
+                "name": "White",
+                "value": "white"
             },
             {
-              "component": "text",
-              "name": "url",
-              "label": "URL",
-              "valueType": "string"
+              "name": "Overlay",
+              "value": "overlay"
             }
-          ]
+        ]
         }
       ]
     }
   ],
-  "filters": [
-    {
-      "id": "hero",
-      "components": [
-        "text",
-        "reference",
-        "button"
-      ]
-    },
-    {
-      "id": "button",
-      "components": [
-        "text"
-      ]
-    }
-  ]
+  "filters": []
 }

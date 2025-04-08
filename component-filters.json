@@ -16,8 +16,7 @@
       "cards",
       "columns",
       "fragment",
-      "table",
-      "teaser"
+      "table"
     ]
   },
   {
@@ -69,12 +68,6 @@
     "id": "table-5-columns",
     "components": [
       "table-col-5"
-    ]
-  },
-  {
-    "id": "teaser",
-    "components": [
-      "teaser-item"
     ]
   }
 ]

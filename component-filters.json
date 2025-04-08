@@ -70,5 +70,11 @@
     "components": [
       "table-col-5"
     ]
+  },
+  {
+    "id": "teaser",
+    "components": [
+      "teaser-item"
+    ]
   }
 ]

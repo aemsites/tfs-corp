@@ -13,7 +13,10 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  color: var(--background-color);
+  padding-top: 100px; 
+  color: white;
+  font-weight: 100;
+  font-size: 40px;
 }
 
 .hero picture {
@@ -32,6 +35,6 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    padding: 40px 110px;
   }
 }

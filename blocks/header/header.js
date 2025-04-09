@@ -148,7 +148,116 @@ export default async function decorate(block) {
   }
 
   setupHamburgerMenu(nav);
-  
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    // Create search wrapper
+    const searchWrapper = document.createElement('div');
+    searchWrapper.classList.add('search-wrapper');
+
+    // Create search input
+    const searchInput = document.createElement('input');
+    searchInput.classList.add('search');
+    searchInput.type = 'text';
+    searchInput.placeholder = 'Search by catalog number, product name, keyword, application';
+    searchInput.setAttribute('aria-label', 'Search');
+
+    // Create search button wrapper
+    const searchButtonWrapper = document.createElement('div');
+    searchButtonWrapper.classList.add('search-button-wrapper');
+
+    // Create "Search All" button
+    const searchButton = document.createElement('button');
+    searchButton.classList.add('search-button');
+    searchButton.textContent = 'Search All';
+
+    // Create dropdown menu
+    const dropdown = document.createElement('ul');
+    dropdown.classList.add('search-dropdown');
+    dropdown.style.display = 'none'; // Hide dropdown initially
+
+    // List of search filters
+    const filters = [
+      'Search All',
+      'TaqMan Assays',
+      'Primary Antibodies',
+      'Secondary Antibodies',
+      'ELISA Kits',
+      'All Documents & Support',
+      'Certificates',
+      'SDS',
+      'Manuals & Protocols',
+      'Product FAQs',
+    ];
+
+    filters.forEach((filter, index) => {
+      const listItem = document.createElement('li');
+      listItem.textContent = filter;
+
+      if (index === 0) {
+        listItem.classList.add('selected');
+        searchButton.textContent = filter; // Set the button text to the first filter
+      }
+
+      // Add event listener for filter selection
+      listItem.addEventListener('click', () => {
+        // Update button text with the selected filter
+        searchButton.textContent = filter;
+
+        // Remove 'selected' class from all list items
+        dropdown.querySelectorAll('li').forEach((item) => {
+          item.classList.remove('selected');
+        });
+
+        // Add 'selected' class to the clicked filter
+        listItem.classList.add('selected');
+
+        // Hide dropdown after selecting a filter
+        dropdown.style.display = 'none';
+      });
+
+      dropdown.appendChild(listItem);
+    });
+
+    const popularProducts = Array.from(dropdown.querySelectorAll('li')).slice(1, 5);
+    popularProducts.forEach((filter) => {
+      filter.classList.add('popular-product');
+    });
+
+    // Add title for the filters
+    const title = document.createElement('li');
+    title.classList.add('dropdown-title');
+    title.textContent = 'Popular Product Areas'; // Title for the filters
+    dropdown.insertBefore(title, dropdown.children[1]);
+
+    // Toggle dropdown on button click
+    searchButton.addEventListener('click', () => {
+      dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Append button and dropdown
+    searchButtonWrapper.appendChild(searchButton);
+    searchButtonWrapper.appendChild(dropdown);
+
+    // Append input and button wrapper
+    searchWrapper.appendChild(searchInput);
+    navTools.prepend(searchWrapper);
+    navTools.prepend(searchButtonWrapper);
+
+    const searchIcon = navTools.querySelector('span');
+
+    // Handle search on Enter key
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        performSearch(searchInput, searchButton);
+      }
+    });
+
+    // Handle search when clicking the icon
+    searchIcon.addEventListener('click', () => {
+      performSearch(searchInput, searchButton);
+    });
+  }
+
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {

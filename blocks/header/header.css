@@ -129,15 +129,15 @@ header nav[aria-expanded='true'] .hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-header nav .nav-hamburger .hamburger-drop li {
+.hamburger-drop li {
   line-height: 40px;
 }
 
-header nav .nav-hamburger .hamburger-drop li:last-child {
+.hamburger-drop li:last-child {
   color: var(--text-link);
 }
 
-header nav .nav-hamburger .hamburger-drop li:last-child::after {
+.hamburger-drop li:last-child::after {
   content: '';
   display: inline-block;
   border: solid var(--text-link);
@@ -149,7 +149,7 @@ header nav .nav-hamburger .hamburger-drop li:last-child::after {
 }
 
 /* Adjust the position of the submenu */
-header nav .nav-hamburger .hamburger-drop > ul {
+.hamburger-drop > ul {
   position: absolute;
   left: 100%;
   top: 0;

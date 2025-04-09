@@ -148,8 +148,8 @@ export default async function decorate(block) {
   }
 
   setupHamburgerMenu(nav);
-  const navTools = nav.querySelector('.nav-tools');
-  if (navTools) {
+  //const navTools = nav.querySelector('.nav-tools');
+  //if (navTools) {
     // Create search wrapper
     const searchWrapper = document.createElement('div');
     searchWrapper.classList.add('search-wrapper');
@@ -256,7 +256,7 @@ export default async function decorate(block) {
     searchIcon.addEventListener('click', () => {
       performSearch(searchInput, searchButton);
     });
-  }
+  // }
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {

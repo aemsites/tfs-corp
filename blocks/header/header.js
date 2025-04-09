@@ -134,7 +134,7 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
+  const classes = ['hamburger', 'brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
@@ -147,6 +147,8 @@ export default async function decorate(block) {
     // brandLink.closest('.button-container').className = '';
   }
 
+  setupHamburgerMenu(nav);
+  
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
@@ -160,22 +162,72 @@ export default async function decorate(block) {
       });
     });
   }
-
-  // hamburger for mobile
-  const hamburger = document.createElement('div');
-  hamburger.classList.add('nav-hamburger');
-  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span>
-    </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-  nav.prepend(hamburger);
-  nav.setAttribute('aria-expanded', 'false');
-  // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
-
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+}
+
+// Function to set up hamburger menu
+function setupHamburgerMenu(nav) {
+  const hamburgerContainer = nav.querySelector('.nav-hamburger');
+  if (!hamburgerContainer) return;
+
+  const hamburgerItems = hamburgerContainer.querySelector('ul');
+  const logo = hamburgerContainer.querySelector('span');
+  hamburgerContainer.innerHTML = '';
+
+  const hamburgerButton = document.createElement('button');
+  hamburgerButton.classList.add('hamburger-icon');
+  hamburgerButton.innerHTML = '&#9776;';
+  hamburgerButton.setAttribute('aria-expanded', 'false');
+
+  hamburgerItems.style.display = 'none';
+
+  hamburgerButton.addEventListener('click', () => {
+    const expanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
+
+    if (expanded) {
+      hamburgerItems.querySelectorAll(':scope > li[aria-expanded="true"]').forEach((openMenu) => {
+        openMenu.setAttribute('aria-expanded', 'false');
+        const submenu = openMenu.querySelector('ul');
+        if (submenu) submenu.style.display = 'none';
+      });
+      hamburgerContainer.classList.remove('submenu-expanded');
+    }
+
+    hamburgerItems.style.display = expanded ? 'none' : 'block';
+    hamburgerButton.innerHTML = expanded ? '&#9776;' : '&#10005;';
+    hamburgerButton.classList.toggle('close-menu', !expanded);
+    hamburgerButton.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  });
+
+  hamburgerItems.querySelectorAll(':scope > li').forEach((menuItem) => {
+    const submenu = menuItem.querySelector('ul');
+    if (submenu) {
+      menuItem.classList.add('hamburger-drop');
+      submenu.style.display = 'none';
+      menuItem.setAttribute('aria-expanded', 'false');
+
+      menuItem.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const expanded = menuItem.getAttribute('aria-expanded') === 'true';
+        hamburgerItems.querySelectorAll(':scope > li[aria-expanded="true"]').forEach((openMenu) => {
+          if (openMenu !== menuItem) {
+            openMenu.setAttribute('aria-expanded', 'false');
+            const openSubmenu = openMenu.querySelector('ul');
+            if (openSubmenu) openSubmenu.style.display = 'none';
+          }
+        });
+
+        submenu.style.display = expanded ? 'none' : 'block';
+        menuItem.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        hamburgerContainer.classList.toggle('submenu-expanded', !expanded);
+      });
+    }
+  });
+
+  hamburgerItems.prepend(logo);
+  hamburgerContainer.appendChild(hamburgerButton);
+  hamburgerContainer.appendChild(hamburgerItems);
 }

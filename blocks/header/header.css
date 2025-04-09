@@ -76,44 +76,44 @@ header nav .nav-hamburger button {
   font-size: 40px;
 }
 
-header nav .nav-hamburger-icon,
-header nav .nav-hamburger-icon::before,
-header nav .nav-hamburger-icon::after {
+header nav .hamburger-icon,
+header nav .hamburger-icon::before,
+header nav .hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
   width: 24px;
 }
 
-header nav .nav-hamburger-icon::before,
-header nav .nav-hamburger-icon::after {
+header nav .hamburger-icon::before,
+header nav .hamburger-icon::after {
   content: '';
   position: absolute;
   background: currentcolor;
 }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon,
-header nav[aria-expanded='false'] .nav-hamburger-icon::before,
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
+header nav[aria-expanded='false'] .hamburger-icon,
+header nav[aria-expanded='false'] .hamburger-icon::before,
+header nav[aria-expanded='false'] .hamburger-icon::after {
   height: 2px;
   border-radius: 2px;
   background: currentcolor;
 }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon::before {
+header nav[aria-expanded='false'] .hamburger-icon::before {
   top: -6px;
 }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
+header nav[aria-expanded='false'] .hamburger-icon::after {
   top: 6px;
 }
 
-header nav[aria-expanded='true'] .nav-hamburger-icon {
+header nav[aria-expanded='true'] .hamburger-icon {
   height: 22px;
 }
 
-header nav[aria-expanded='true'] .nav-hamburger-icon::before,
-header nav[aria-expanded='true'] .nav-hamburger-icon::after {
+header nav[aria-expanded='true'] .hamburger-icon::before,
+header nav[aria-expanded='true'] .hamburger-icon::after {
   top: 3px;
   left: 1px;
   transform: rotate(45deg);
@@ -123,11 +123,44 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   border-radius: 2px;
 }
 
-header nav[aria-expanded='true'] .nav-hamburger-icon::after {
+header nav[aria-expanded='true'] .hamburger-icon::after {
   top: unset;
   bottom: 3px;
   transform: rotate(-45deg);
 }
+
+header nav .nav-hamburger .hamburger-drop li {
+  line-height: 40px;
+}
+
+header nav .nav-hamburger .hamburger-drop li:last-child {
+  color: var(--text-link);
+}
+
+header nav .nav-hamburger .hamburger-drop li:last-child::after {
+  content: '';
+  display: inline-block;
+  border: solid var(--text-link);
+  border-width: 0 3px 3px 0; 
+  width: 8px;
+  height: 8px;
+  transform: rotate(-45deg);
+  margin-left: 10px; 
+}
+
+/* Adjust the position of the submenu */
+header nav .nav-hamburger .hamburger-drop > ul {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 350px;
+  background-color: var(--white-0);
+  border-right: 1px solid #d8d8d8;
+  border-radius: 5px;
+  display: none;
+  padding: 15px;
+}
+
 
 /* brand */
 header .nav-brand {

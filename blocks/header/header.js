@@ -103,6 +103,70 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+// Function to set up hamburger menu
+function setupHamburgerMenu(nav) {
+  const hamburgerContainer = nav.querySelector('.nav-hamburger');
+  if (!hamburgerContainer) return;
+
+  const hamburgerItems = hamburgerContainer.querySelector('ul');
+  const logo = hamburgerContainer.querySelector('span');
+  hamburgerContainer.innerHTML = '';
+
+  const hamburgerButton = document.createElement('button');
+  hamburgerButton.classList.add('hamburger-icon');
+  hamburgerButton.innerHTML = '&#9776;';
+  hamburgerButton.setAttribute('aria-expanded', 'false');
+
+  hamburgerItems.style.display = 'none';
+
+  hamburgerButton.addEventListener('click', () => {
+    const expanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
+
+    if (expanded) {
+      hamburgerItems.querySelectorAll(':scope > li[aria-expanded="true"]').forEach((openMenu) => {
+        openMenu.setAttribute('aria-expanded', 'false');
+        const submenu = openMenu.querySelector('ul');
+        if (submenu) submenu.style.display = 'none';
+      });
+      hamburgerContainer.classList.remove('submenu-expanded');
+    }
+
+    hamburgerItems.style.display = expanded ? 'none' : 'block';
+    hamburgerButton.innerHTML = expanded ? '&#9776;' : '&#10005;';
+    hamburgerButton.classList.toggle('close-menu', !expanded);
+    hamburgerButton.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  });
+
+  hamburgerItems.querySelectorAll(':scope > li').forEach((menuItem) => {
+    const submenu = menuItem.querySelector('ul');
+    if (submenu) {
+      menuItem.classList.add('hamburger-drop');
+      submenu.style.display = 'none';
+      menuItem.setAttribute('aria-expanded', 'false');
+
+      menuItem.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const expanded = menuItem.getAttribute('aria-expanded') === 'true';
+        hamburgerItems.querySelectorAll(':scope > li[aria-expanded="true"]').forEach((openMenu) => {
+          if (openMenu !== menuItem) {
+            openMenu.setAttribute('aria-expanded', 'false');
+            const openSubmenu = openMenu.querySelector('ul');
+            if (openSubmenu) openSubmenu.style.display = 'none';
+          }
+        });
+
+        submenu.style.display = expanded ? 'none' : 'block';
+        menuItem.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        hamburgerContainer.classList.toggle('submenu-expanded', !expanded);
+      });
+    }
+  });
+
+  hamburgerItems.prepend(logo);
+  hamburgerContainer.appendChild(hamburgerButton);
+  hamburgerContainer.appendChild(hamburgerItems);
+}
+
 export async function loadNavFragment(fragmentName) {
   let navPath = getMetadata(fragmentName);
   let navFragment;
@@ -275,68 +339,4 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
-}
-
-// Function to set up hamburger menu
-function setupHamburgerMenu(nav) {
-  const hamburgerContainer = nav.querySelector('.nav-hamburger');
-  if (!hamburgerContainer) return;
-
-  const hamburgerItems = hamburgerContainer.querySelector('ul');
-  const logo = hamburgerContainer.querySelector('span');
-  hamburgerContainer.innerHTML = '';
-
-  const hamburgerButton = document.createElement('button');
-  hamburgerButton.classList.add('hamburger-icon');
-  hamburgerButton.innerHTML = '&#9776;';
-  hamburgerButton.setAttribute('aria-expanded', 'false');
-
-  hamburgerItems.style.display = 'none';
-
-  hamburgerButton.addEventListener('click', () => {
-    const expanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
-
-    if (expanded) {
-      hamburgerItems.querySelectorAll(':scope > li[aria-expanded="true"]').forEach((openMenu) => {
-        openMenu.setAttribute('aria-expanded', 'false');
-        const submenu = openMenu.querySelector('ul');
-        if (submenu) submenu.style.display = 'none';
-      });
-      hamburgerContainer.classList.remove('submenu-expanded');
-    }
-
-    hamburgerItems.style.display = expanded ? 'none' : 'block';
-    hamburgerButton.innerHTML = expanded ? '&#9776;' : '&#10005;';
-    hamburgerButton.classList.toggle('close-menu', !expanded);
-    hamburgerButton.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  });
-
-  hamburgerItems.querySelectorAll(':scope > li').forEach((menuItem) => {
-    const submenu = menuItem.querySelector('ul');
-    if (submenu) {
-      menuItem.classList.add('hamburger-drop');
-      submenu.style.display = 'none';
-      menuItem.setAttribute('aria-expanded', 'false');
-
-      menuItem.addEventListener('click', (event) => {
-        event.stopPropagation();
-        const expanded = menuItem.getAttribute('aria-expanded') === 'true';
-        hamburgerItems.querySelectorAll(':scope > li[aria-expanded="true"]').forEach((openMenu) => {
-          if (openMenu !== menuItem) {
-            openMenu.setAttribute('aria-expanded', 'false');
-            const openSubmenu = openMenu.querySelector('ul');
-            if (openSubmenu) openSubmenu.style.display = 'none';
-          }
-        });
-
-        submenu.style.display = expanded ? 'none' : 'block';
-        menuItem.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        hamburgerContainer.classList.toggle('submenu-expanded', !expanded);
-      });
-    }
-  });
-
-  hamburgerItems.prepend(logo);
-  hamburgerContainer.appendChild(hamburgerButton);
-  hamburgerContainer.appendChild(hamburgerItems);
 }

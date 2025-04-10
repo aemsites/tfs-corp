@@ -167,6 +167,20 @@ function setupHamburgerMenu(nav) {
   hamburgerContainer.appendChild(hamburgerItems);
 }
 
+// Function to perform search
+function performSearch(searchInput, searchButton) {
+  const query = searchInput.value.trim();
+  const selectedFilter = searchButton.textContent;
+
+  if (query) {
+    let searchType = '';
+    if (selectedFilter !== 'Search All') {
+      searchType = `&filter=${encodeURIComponent(selectedFilter)}`;
+    }
+    window.location.href = `/search?q=${encodeURIComponent(query)}${searchType}`;
+  }
+}
+
 export async function loadNavFragment(fragmentName) {
   let navPath = getMetadata(fragmentName);
   let navFragment;

@@ -167,65 +167,8 @@ function setupHamburgerMenu(nav) {
   hamburgerContainer.appendChild(hamburgerItems);
 }
 
-// Function to perform search
-function performSearch(searchInput, searchButton) {
-  const query = searchInput.value.trim();
-  const selectedFilter = searchButton.textContent;
-
-  if (query) {
-    let searchType = '';
-    if (selectedFilter !== 'Search All') {
-      searchType = `&filter=${encodeURIComponent(selectedFilter)}`;
-    }
-    window.location.href = `/search?q=${encodeURIComponent(query)}${searchType}`;
-  }
-}
-
-export async function loadNavFragment(fragmentName) {
-  let navPath = getMetadata(fragmentName);
-  let navFragment;
-  if (navPath) {
-    navFragment = await loadFragment(navPath);
-  }
-
-  // all else fails default to us en
-  if (!navFragment) {
-    navPath = `/us/en/fragments/${fragmentName}`;
-    navFragment = await loadFragment(navPath);
-  }
-
-  return navFragment;
-}
-
-/**
- * loads and decorates the header, mainly the nav
- * @param {Element} block The header block element
- */
-export default async function decorate(block) {
-  // load nav as fragment
-  // load nav as fragment
-  const fragment = await loadNavFragment('nav');
-
-  // decorate nav DOM
-  block.textContent = '';
-  const nav = document.createElement('nav');
-  nav.id = 'nav';
-  while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
-
-  const classes = ['hamburger', 'brand', 'tools', 'sections'];
-  classes.forEach((c, i) => {
-    const section = nav.children[i];
-    if (section) section.classList.add(`nav-${c}`);
-  });
-
-  const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    // brandLink.closest('.button-container').className = '';
-  }
-
-  setupHamburgerMenu(nav);
+// Function to set up hamburger menu
+function setupSearchDropDown(nav) {
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
     // Create search wrapper
@@ -335,6 +278,68 @@ export default async function decorate(block) {
       performSearch(searchInput, searchButton);
     });
   }
+}
+
+// Function to perform search
+function performSearch(searchInput, searchButton) {
+  const query = searchInput.value.trim();
+  const selectedFilter = searchButton.textContent;
+
+  if (query) {
+    let searchType = '';
+    if (selectedFilter !== 'Search All') {
+      searchType = `&filter=${encodeURIComponent(selectedFilter)}`;
+    }
+    window.location.href = `/search?q=${encodeURIComponent(query)}${searchType}`;
+  }
+}
+
+export async function loadNavFragment(fragmentName) {
+  let navPath = getMetadata(fragmentName);
+  let navFragment;
+  if (navPath) {
+    navFragment = await loadFragment(navPath);
+  }
+
+  // all else fails default to us en
+  if (!navFragment) {
+    navPath = `/us/en/fragments/${fragmentName}`;
+    navFragment = await loadFragment(navPath);
+  }
+
+  return navFragment;
+}
+
+/**
+ * loads and decorates the header, mainly the nav
+ * @param {Element} block The header block element
+ */
+export default async function decorate(block) {
+  // load nav as fragment
+  // load nav as fragment
+  const fragment = await loadNavFragment('nav');
+
+  // decorate nav DOM
+  block.textContent = '';
+  const nav = document.createElement('nav');
+  nav.id = 'nav';
+  while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+
+  const classes = ['hamburger', 'brand', 'tools', 'sections'];
+  classes.forEach((c, i) => {
+    const section = nav.children[i];
+    if (section) section.classList.add(`nav-${c}`);
+  });
+
+  const navBrand = nav.querySelector('.nav-brand');
+  const brandLink = navBrand.querySelector('.button');
+  if (brandLink) {
+    brandLink.className = '';
+    // brandLink.closest('.button-container').className = '';
+  }
+
+  setupHamburgerMenu(nav);
+  setupSearchDropDown(nav);
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {

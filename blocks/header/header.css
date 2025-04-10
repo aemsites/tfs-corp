@@ -291,5 +291,107 @@ header nav .nav-sections ul > li > ul > li {
 
 /* tools */
 header nav .nav-tools {
-  grid-area: tools;
+  display: flex;
+  align-items: center;
+  margin-left: 90px;
+
 }
+
+header nav .nav-tools .button {
+  margin: 0;
+  border: none;
+  padding: 0.5em;
+  background: none;
+  line-height: 0;
+  display: inline;
+}
+
+header .nav-tools .search {
+  width: 35vw;
+  max-width: 600px;
+  min-width: 50px;
+  border: 1px solid #d8d8d8;
+  height: 45px;
+}
+
+header .nav-tools .search-button {
+  background-color: var(--gray-0);
+  color: var(--dark-color);
+  font-weight: normal;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #d8d8d8;
+  border-right: none;
+  height: 49px;
+  text-align: left;
+  width: 200px;
+  position: relative;
+}
+
+
+header .nav-tools .search-button::after {
+  display: inline-block;
+  content: '▼';
+  position: absolute;
+  right: 15px;
+  top: 40%;
+  font-size: 9px;
+}
+
+header .nav-tools .search::placeholder {
+  font-size: 12px;
+  padding-left: 17px;
+}
+
+header .nav-tools .default-content-wrapper {
+  background-color: var(--gray-60);
+  height: 49px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+header .nav-tools .icon-search {
+  height: 30px;
+  margin-top: 11px;
+  width: 100px;
+}
+
+header .nav-tools .search-dropdown{
+  margin: 0;
+  padding: 0;
+  background-color: var(--white-0);
+  position: absolute;
+  z-index: 999;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  box-shadow: 5px 5px 25px color(display-p3 0 0 0 / 10%);
+  width: 200px
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header .nav-tools .search-dropdown li {
+  text-align: left;
+  font-size: 13px;
+  line-height: 25px;
+  padding-left: 10px;
+}
+
+header .nav-tools .dropdown-title {
+  font-weight: bolder !important;
+  color: #a2a2a2;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header .nav-tools .search-dropdown li:nth-child(1) {
+  padding-left: 10px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+header .nav-tools .popular-product {
+  padding-left: 20px !important;
+}
+
+.search-dropdown li.selected {
+  background-color: #007fff;
+  color: white;
+}
+

@@ -294,6 +294,23 @@ function performSearch(searchInput, searchButton) {
   }
 }
 
+// Function to setup sections
+function setupSections(nav) {
+  const navSections = nav.querySelector('.nav-sections');
+  if (navSections) {
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      navSection.addEventListener('click', () => {
+        if (isDesktop.matches) {
+          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          toggleAllNavSections(navSections);
+          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        }
+      });
+    });
+  }
+}
+
 export async function loadNavFragment(fragmentName) {
   let navPath = getMetadata(fragmentName);
   let navFragment;
@@ -340,20 +357,9 @@ export default async function decorate(block) {
 
   setupHamburgerMenu(nav);
   setupSearchDropDown(nav);
+  setupSections(nav);
 
-  const navSections = nav.querySelector('.nav-sections');
-  if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
-    });
-  }
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
